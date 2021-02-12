@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<!-- <p>Here, you can generate questions from some given text.</p> -->
+<div class="content-section">
+    <form action="{% url 'generate' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Generate Questions</legend>
+            <h4>Enter your passage below:</h4>
+            <textarea name="passage" rows="8" cols="100" class="textinput textInput form-control" required>{{ passage }}</textarea><br>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit" name="gen-button">Generate</button>
+        </div>
+    </form>
+</div>
+
+{% if questions %}
+<p>Questions Generated:</p>
+{% for question in questions %}
+<div class="content-section">
+    <p>{{ question }}</p>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock content %}

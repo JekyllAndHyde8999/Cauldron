@@ -1,0 +1,33 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="" style="left: 50%;">
+    <p style="text-align: center; font-size: 20px;">
+        Welcome to Cau?dron!<br>
+    </p>
+    <p style="text-align: center;">
+        Your one stop to generating questions from passages.
+    </p>
+    <p>
+        Generating questions is now as easy as 1-2-3.
+    </p>
+
+    <div class="content-section">
+        Step 1<br>
+        Go to <a href="{% url 'generate' %}">this link</a>.
+    </div>
+    <div class="content-section">
+        Step 2<br>
+        Type in your text in the box.<br>
+        <img src="{% static 'images/textbox.png' %}" alt="TextBox Image" height="200">
+    </div>
+    <div class="content-section">
+        Step 3<br>
+        Get your questions in just a few seconds!
+    </div>
+
+    <p>
+        It&apos;s as simple as that!
+    </p>
+</div>
+{% endblock content %}
